@@ -266,6 +266,12 @@ def generate_report(week_start, week_data, prev_week_data, baseline):
     return "\n".join(lines)
 
 
+def get_quarter_dir(d):
+    """日付から四半期ディレクトリパスを返す。"""
+    q = (d.month - 1) // 3 + 1
+    return REPORT_DIR / f"{d.year}-Q{q}"
+
+
 def main():
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -280,12 +286,15 @@ def main():
         prev_data = weeks[week_keys[i - 1]] if i > 0 else None
         week_end = sat + timedelta(days=6)
 
+        quarter_dir = get_quarter_dir(sat)
+        quarter_dir.mkdir(parents=True, exist_ok=True)
+
         report = generate_report(sat, week_data, prev_data, baseline)
         filename = f"{sat}_to_{week_end}.md"
-        filepath = REPORT_DIR / filename
+        filepath = quarter_dir / filename
         with open(filepath, "w") as f:
             f.write(report)
-        generated.append(filename)
+        generated.append(f"{quarter_dir.name}/{filename}")
 
     print(f"{len(generated)} 件の週間レポートを生成しました:")
     for name in generated:
