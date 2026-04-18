@@ -1,5 +1,5 @@
 {
-  "current_phase": "1b",
+  "current_phase": "2",
   "tdee_estimate": 2500,
   "phases": {
     "1a": {
@@ -13,8 +13,9 @@
     },
     "1b": {
       "name": "マンジャロ減量期",
-      "status": "active",
-      "period": "2026-03-21 〜 2026-04中旬",
+      "status": "completed",
+      "period": "2026-03-21 〜 2026-04-19",
+      "notes": "LBMを72.5〜73.3kgで安定化。フェーズ1aで失った筋肉量の大部分を回復。累計脂肪比率80%を達成",
       "menu": null,
       "calories_target": 2000,
       "deficit_from_tdee": -500,
@@ -40,8 +41,8 @@
     },
     "2": {
       "name": "筋トレ期",
-      "status": "planned",
-      "period": "2026-04中旬〜",
+      "status": "active",
+      "period": "2026-04-19 〜",
       "medication": "マンジャロ停止（体脂肪率20%未満到達 or 筋トレ開始時）",
       "method": "カーボサイクル（High Day / Low Day）",
       "calories_target": "維持カロリーを見定めながら調整",
